@@ -8,7 +8,33 @@
 
 #import <Foundation/Foundation.h>
 
+#pragma pack(1)
+typedef struct common_header_s {
+    unsigned char   flag;  
+    UInt8           type:3;
+    UInt8           version:5;
+    UInt32          length;
+} CommonHeader;
+
+typedef struct packet_header_s {
+    UInt8		  type; 
+    UInt32		length; 
+    UInt8     verify_code[32];
+    UInt32		param1;
+    UInt32		param2;
+} PacketHeader;
+#pragma pack()
+
 #pragma mark define your string
+#define REP_FILE_NAME @""
+#define REP_FILE_HANDLE @""
+#define REP_FILE_SIZE @""
+#define REP_FILE_VERSION @""
+#define REP_CODE @""
+#define REP_TYPE @""
+#define REP_ERROR_CODE @""
+#define REP_ERROR_MESSAGE ""
+
 
 @class LGTCPSocketClient;
 
